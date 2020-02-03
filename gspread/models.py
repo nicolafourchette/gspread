@@ -599,7 +599,7 @@ class Worksheet(object):
             for j, value in enumerate(row)
         ]
 
-    def get_all_values(self):
+    def get_all_values(self, value_render_option='UNFORMATTED_VALUE'):
         """Returns a list of lists containing all cells' values as strings.
 
         .. note::
@@ -607,7 +607,10 @@ class Worksheet(object):
             Empty trailing rows and columns will not be included.
         """
 
-        data = self.spreadsheet.values_get(self.title)
+        data = self.spreadsheet.values_get(
+            self.title,
+            params={'valueRenderOption': value_render_option}
+        )
 
         try:
             return fill_gaps(data['values'])
