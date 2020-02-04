@@ -599,7 +599,7 @@ class Worksheet(object):
             for j, value in enumerate(row)
         ]
 
-    def get_all_values(self, value_render_option='UNFORMATTED_VALUE'):
+    def get_all_values(self, value_render_option='UNFORMATTED_VALUE', datetime_render_option'FORMATTED_STRING'):
         """Returns a list of lists containing all cells' values as strings.
 
         .. note::
@@ -609,7 +609,10 @@ class Worksheet(object):
 
         data = self.spreadsheet.values_get(
             self.title,
-            params={'valueRenderOption': value_render_option}
+            params={
+                'valueRenderOption': value_render_option,
+                'dateTimeRenderOption': datetime_render_option
+            }
         )
 
         try:
