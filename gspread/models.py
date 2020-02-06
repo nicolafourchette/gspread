@@ -616,7 +616,7 @@ class Worksheet(object):
         )
 
         try:
-            return fill_gaps(data['values'])
+            return [[numericise(x, default_blank=None) for x in y] for y in fill_gaps(data['values'])]
         except KeyError:
             return []
 
