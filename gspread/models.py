@@ -15,6 +15,7 @@ from .utils import (
     rowcol_to_a1,
     cast_to_a1_notation,
     numericise_all,
+    numericise,
     finditem,
     fill_gaps,
     cell_list_to_rect,
