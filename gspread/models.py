@@ -15,7 +15,6 @@ from .utils import (
     rowcol_to_a1,
     cast_to_a1_notation,
     numericise_all,
-    numericise,
     finditem,
     fill_gaps,
     cell_list_to_rect,
@@ -617,7 +616,7 @@ class Worksheet(object):
         )
 
         try:
-            return [[numericise(x, default_blank=None) for x in y] for y in fill_gaps(data['values'])]
+            return fill_gaps(data['values'])
         except KeyError:
             return []
 
