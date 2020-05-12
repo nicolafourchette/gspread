@@ -73,10 +73,10 @@ def numericise(value, empty2zero=False, default_blank="", allow_underscores_in_n
         if "_" in value and not allow_underscores_in_numeric_literals:
             return value
         try:
-            value = int(value)
+            value = float(value)
         except ValueError:
             try:
-                value = float(value)
+                value = int(value)
             except ValueError:
                 if value == "":
                     if empty2zero:
